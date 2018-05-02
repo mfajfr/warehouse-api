@@ -1,0 +1,14 @@
+{
+    "name": "mfajfr/warehouse-api",
+    "description": "API for communating with Warehouse system",
+    "type": "library",
+    "require": {
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "authors": [
+        {
+            "name": "Ing. Marek Fajfr",
+            "email": "mfajfr90@gmail.com"
+        }
+    ]
+}
