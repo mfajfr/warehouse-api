@@ -30,7 +30,7 @@ class WarehouseAPI
         $this->auth = $auth;
     }
 
-    public function sendItemTransaction(ItemTransaction $itemTransaction)
+    public function storeItemTransaction(ItemTransaction $itemTransaction)
     {
         $client = new Client();
 
@@ -40,6 +40,49 @@ class WarehouseAPI
                 'Accept' => 'application/json'
             ],
             'json' => $itemTransaction->jsonSerialize()
+        ]);
+
+        return $response;
+    }
+
+    public function updateItemTransaction(ItemTransaction $itemTransaction, $item_transaction_uid)
+    {
+        $client = new Client();
+
+        $response = $client->patch($this->url . 'item-transaction/' . $item_transaction_uid . '/complete', [
+            'headers' => [
+                'Authorization' => 'Bearer ' . $this->auth,
+                'Accept' => 'application/json'
+            ],
+            'json' => $itemTransaction->jsonSerialize()
+        ]);
+
+        return $response;
+    }
+
+    public function completeItemTransaction($item_transaction_uid)
+    {
+        $client = new Client();
+
+        $response = $client->patch($this->url . 'item-transaction/' . $item_transaction_uid . '/complete', [
+            'headers' => [
+                'Authorization' => 'Bearer ' . $this->auth,
+                'Accept' => 'application/json'
+            ]
+        ]);
+
+        return $response;
+    }
+
+    public function deleteItemTransaction($item_transaction_uid)
+    {
+        $client = new Client();
+
+        $response = $client->delete($this->url . 'item-transaction/' . $item_transaction_uid . '/delete', [
+            'headers' => [
+                'Authorization' => 'Bearer ' . $this->auth,
+                'Accept' => 'application/json'
+            ]
         ]);
 
         return $response;
