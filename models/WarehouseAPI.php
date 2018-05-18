@@ -87,4 +87,32 @@ class WarehouseAPI
 
         return $response;
     }
+
+    public function stockedItem($item_uid)
+    {
+        $client = new Client();
+
+        $response = $client->get($this->url . 'item/' . $item_uid . '/stocked', [
+            'headers' => [
+                'Authorization' => 'Bearer ' . $this->auth,
+                'Accept' => 'application/json'
+            ]
+        ]);
+
+        return $response;
+    }
+
+    public function stockedItemList()
+    {
+        $client = new Client();
+
+        $response = $client->get($this->url . 'item/stocked-list', [
+            'headers' => [
+                'Authorization' => 'Bearer ' . $this->auth,
+                'Accept' => 'application/json'
+            ]
+        ]);
+
+        return $response;
+    }
 }
