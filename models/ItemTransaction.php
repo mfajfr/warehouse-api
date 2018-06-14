@@ -39,13 +39,13 @@ class ItemTransaction implements \JsonSerializable
 
     public function addItem(Item $item)
     {
-        $this->items[$item->getItemId()] = $item;
+        $this->items[$item->getItemUid()] = $item;
     }
 
     public function deleteItem(Item $item)
     {
         if ($this->existItem($item)) {
-            unset($this->items[$item->getItemId()]);
+            unset($this->items[$item->getItemUid()]);
         }
     }
 
@@ -56,7 +56,7 @@ class ItemTransaction implements \JsonSerializable
 
     public function existItem(Item $item)
     {
-        return array_key_exists($item->getItemId(), $this->items);
+        return array_key_exists($item->getItemUid(), $this->items);
     }
 
     /**
