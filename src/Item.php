@@ -45,7 +45,7 @@ class Item implements \JsonSerializable
     /**
      * @param string $item_uid
      */
-    public function setItemUid($item_uid): void
+    public function setItemUid($item_uid)
     {
         $this->item_uid = $item_uid;
     }
@@ -61,7 +61,7 @@ class Item implements \JsonSerializable
     /**
      * @param integer $quantity
      */
-    public function setQuantity($quantity): void
+    public function setQuantity($quantity)
     {
         $this->quantity = $quantity;
     }
@@ -77,7 +77,7 @@ class Item implements \JsonSerializable
     /**
      * @param float $price_without_tax
      */
-    public function setPriceWithoutTax($price_without_tax): void
+    public function setPriceWithoutTax($price_without_tax)
     {
         $this->price_without_tax = $price_without_tax;
     }
