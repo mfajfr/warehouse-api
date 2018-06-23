@@ -4,7 +4,7 @@
  * Created at: 14:12 02.05.2018
  */
 
-namespace models;
+namespace WarehouseAPI;
 
 use GuzzleHttp\Client;
 

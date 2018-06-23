@@ -4,7 +4,7 @@
  * Created at: 13:55 02.05.2018
  */
 
-namespace models;
+namespace WarehouseApi;
 
 class Item implements \JsonSerializable
 {

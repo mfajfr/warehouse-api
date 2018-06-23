@@ -4,7 +4,7 @@
  * Created at: 13:54 02.05.2018
  */
 
-namespace models;
+namespace WarehouseAPI;
 
 class ItemTransaction implements \JsonSerializable
 {
