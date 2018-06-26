@@ -6,49 +6,20 @@
 
 namespace WarehouseApi;
 
-use GuzzleHttp\Client;
-
 class ItemAPI extends WarehouseAPI
 {
-    public function stocked($item_uid)
+    public function stocked($item_uid, $onlyData = true)
     {
-        $client = new Client();
-
-        $response = $client->get($this->url . 'item/' . $item_uid . '/stocked', [
-            'headers' => [
-                'Authorization' => 'Bearer ' . $this->auth,
-                'Accept' => 'application/json'
-            ]
-        ]);
-
-        return $response;
+        return $this->response($this->get('item/' . $item_uid . '/stocked'), $onlyData);
     }
 
-    public function stockedList()
+    public function stockedList($onlyData = true)
     {
-        $client = new Client();
-
-        $response = $client->get($this->url . 'item/stocked-list', [
-            'headers' => [
-                'Authorization' => 'Bearer ' . $this->auth,
-                'Accept' => 'application/json'
-            ]
-        ]);
-
-        return $response;
+        return $this->response($this->get('item/stocked-list'), $onlyData);
     }
 
-    public function providers($item_uid)
+    public function providers($item_uid, $onlyData = true)
     {
-        $client = new Client();
-
-        $response = $client->get($this->url . 'item/' . $item_uid . '/stocked', [
-            'headers' => [
-                'Authorization' => 'Bearer ' . $this->auth,
-                'Accept' => 'application/json'
-            ]
-        ]);
-
-        return $response;
+        return $this->response($this->get('item/' . $item_uid . '/stocked'), $onlyData);
     }
 }
