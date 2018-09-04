@@ -8,7 +8,7 @@ namespace WarehouseApi;
 
 use GuzzleHttp\Client;
 
-class ItemTransactionAPI extends WarehouseAPI
+class ItemTransactionV1API extends WarehouseV1API
 {
     public function store(ItemTransaction $itemTransaction)
     {

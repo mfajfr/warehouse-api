@@ -9,7 +9,7 @@ namespace WarehouseAPI;
 use GuzzleHttp\Client;
 use Psr\Http\Message\ResponseInterface;
 
-class WarehouseAPI
+class WarehouseV1API
 {
     /**
      * @var string
@@ -21,7 +21,7 @@ class WarehouseAPI
     protected $auth;
 
     /**
-     * WarehouseAPI constructor.
+     * WarehouseV1API constructor.
      * @param string $url
      * @param string $auth
      */
@@ -50,14 +50,14 @@ class WarehouseAPI
     public function post($uri, $data)
     {
         return $this->client()->post($uri, [
-            'json' => json_encode($data)
+            'json' => $data
         ]);
     }
 
     public function put($uri, $data)
     {
         return $this->client()->post($uri, [
-            'json' => json_encode($data)
+            'json' => $data
         ]);
     }
 

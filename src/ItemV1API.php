@@ -6,11 +6,11 @@
 
 namespace WarehouseAPI;
 
-class ItemAPI extends WarehouseAPI
+class ItemV1API extends WarehouseV1API
 {
     public function stocked($item_uid, $onlyData = true)
     {
-        return $this->response($this->get('item/' . $item_uid . '/stocked'), $onlyData);
+        return $this->response($this->get('item/uid/' . $item_uid . '/stocked'), $onlyData);
     }
 
     public function stockedList($onlyData = true)
@@ -20,6 +20,6 @@ class ItemAPI extends WarehouseAPI
 
     public function providers($item_uid, $onlyData = true)
     {
-        return $this->response($this->get('item/' . $item_uid . '/providers'), $onlyData);
+        return $this->response($this->get('item/uid/' . $item_uid . '/providers'), $onlyData);
     }
 }
