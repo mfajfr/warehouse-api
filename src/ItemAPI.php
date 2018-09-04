@@ -20,6 +20,6 @@ class ItemAPI extends WarehouseAPI
 
     public function providers($item_uid, $onlyData = true)
     {
-        return $this->response($this->get('item/' . $item_uid . '/stocked'), $onlyData);
+        return $this->response($this->get('item/' . $item_uid . '/providers'), $onlyData);
     }
 }
