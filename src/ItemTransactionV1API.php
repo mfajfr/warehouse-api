@@ -6,65 +6,25 @@
 
 namespace WarehouseApi;
 
-use GuzzleHttp\Client;
-
 class ItemTransactionV1API extends WarehouseV1API
 {
     public function store(ItemTransaction $itemTransaction)
     {
-        $client = new Client();
-
-        $response = $client->post($this->url . 'item-transaction/store', [
-            'headers' => [
-                'Authorization' => 'Bearer ' . $this->auth,
-                'Accept' => 'application/json'
-            ],
-            'json' => $itemTransaction->jsonSerialize()
-        ]);
-
-        return $response;
+        return $this->response($this->post($this->url . 'item-transaction/store', $itemTransaction->jsonSerialize()));
     }
 
     public function update(ItemTransaction $itemTransaction, $item_transaction_uid)
     {
-        $client = new Client();
-
-        $response = $client->patch($this->url . 'item-transaction/' . $item_transaction_uid . '/complete', [
-            'headers' => [
-                'Authorization' => 'Bearer ' . $this->auth,
-                'Accept' => 'application/json'
-            ],
-            'json' => $itemTransaction->jsonSerialize()
-        ]);
-
-        return $response;
+        return $this->response($this->patch($this->url . 'uid/item-transaction/' . $item_transaction_uid . '/complete', $itemTransaction->jsonSerialize()));
     }
 
     public function complete($item_transaction_uid)
     {
-        $client = new Client();
-
-        $response = $client->patch($this->url . 'item-transaction/' . $item_transaction_uid . '/complete', [
-            'headers' => [
-                'Authorization' => 'Bearer ' . $this->auth,
-                'Accept' => 'application/json'
-            ]
-        ]);
-
-        return $response;
+        return $this->response($this->patch($this->url . 'uid/item-transaction/' . $item_transaction_uid . '/complete', []));
     }
 
     public function delete($item_transaction_uid)
     {
-        $client = new Client();
-
-        $response = $client->delete($this->url . 'item-transaction/' . $item_transaction_uid . '/delete', [
-            'headers' => [
-                'Authorization' => 'Bearer ' . $this->auth,
-                'Accept' => 'application/json'
-            ]
-        ]);
-
-        return $response;
+        return $this->response(parent::delete($this->url . 'uid/item-transaction/' . $item_transaction_uid));
     }
 }

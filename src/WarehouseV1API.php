@@ -54,6 +54,13 @@ class WarehouseV1API
         ]);
     }
 
+    public function patch($uri, $data)
+    {
+        return $this->client()->patch($uri, [
+            'json' => $data
+        ]);
+    }
+
     public function put($uri, $data)
     {
         return $this->client()->post($uri, [
