@@ -4,7 +4,7 @@
  * Created at: 18:57 23.06.2018
  */
 
-namespace WarehouseApi;
+namespace WarehouseAPI;
 
 class ItemTransactionV1API extends WarehouseV1API
 {
