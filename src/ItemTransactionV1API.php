@@ -15,16 +15,16 @@ class ItemTransactionV1API extends WarehouseV1API
 
     public function update(ItemTransaction $itemTransaction, $item_transaction_uid)
     {
-        return $this->response($this->patch($this->url . 'uid/item-transaction/' . $item_transaction_uid . '/complete', $itemTransaction->jsonSerialize()));
+        return $this->response($this->patch($this->url . 'item-transaction/uid/' . $item_transaction_uid, $itemTransaction->jsonSerialize()));
     }
 
     public function complete($item_transaction_uid)
     {
-        return $this->response($this->patch($this->url . 'uid/item-transaction/' . $item_transaction_uid . '/complete', []));
+        return $this->response($this->patch($this->url . 'item-transaction/uid/' . $item_transaction_uid . '/complete', []));
     }
 
     public function delete($item_transaction_uid)
     {
-        return $this->response(parent::delete($this->url . 'uid/item-transaction/' . $item_transaction_uid));
+        return $this->response(parent::delete($this->url . 'item-transaction/uid/' . $item_transaction_uid));
     }
 }
